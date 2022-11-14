@@ -94,6 +94,9 @@ class LeftCategoryDescription extends Module implements WidgetInterface
 
     public function getWidgetVariables($hookName = null, array $configuration = [])
     {
+        if (Dispatcher::getInstance()->getController() != 'category')
+            return false;
+
         return [
             'category_description' => $this->context->controller->getCategory()->description
         ];
